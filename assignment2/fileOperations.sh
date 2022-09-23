@@ -77,9 +77,9 @@ echo "Task2 DONE"
 echo "\n####################################### Task 3 #############################################"
 for i in $(ls assignment-data); do
 	for j in $(ls assignment-data/$i); do
-		match=$(echo $j | grep "txt")
+		match=$(echo $j | grep -E "txt|note")
 		if 	[[ "$match" != "" ]]; then
-			mv assignment-data/$i/$j notes.txt
+			mv assignment-data/$i/$j assignment-data/$i/notes.txt
 		else
 			continue
 		fi
